@@ -1,0 +1,197 @@
+export const NewRelease = [
+  {
+    id: 1,
+    name: "Book Name One",
+    source: "src/assets/images/jpg/shop-new-16.jpg",
+    author: "Author One",
+    rating: 5,
+    price: 2500,
+  },
+  {
+    id: 2,
+    name: "Book Name Two",
+    source: "src/assets/images/jpg/shop-new-21.jpg",
+    author: "Author Two",
+    rating: 1,
+    price: 3500,
+  },
+  {
+    id: 3,
+    name: "Book Name Three",
+    source: "src/assets/images/jpg/shop-new-40.jpg",
+    author: "Author Three",
+    rating: 4,
+    price: 1500,
+  },
+  {
+    id: 4,
+    name: "Book Name Four",
+    source: "src/assets/images/jpg/shop-new-44.jpg",
+    author: "Author Four",
+    rating: 3,
+    price: 4500,
+  },
+];
+
+export const AwardWinners = [
+  {
+    name: "Book Name One",
+    source: "src/assets/images/jpg/shop-new-44.jpg",
+    author: "Author One",
+    rating: 5,
+    price: 2500,
+  },
+  {
+    name: "Book Name Two",
+    source: "src/assets/images/jpg/shop-new-102.jpg",
+    author: "Author Two",
+    rating: 1,
+    price: 3500,
+  },
+  {
+    name: "Book Name Three",
+    source: "src/assets/images/jpg/shop-new-65.jpg",
+    author: "Author Three",
+    rating: 4,
+    price: 1500,
+  },
+  {
+    name: "Book Name Four",
+    source: "src/assets/images/jpg/shop-new-21.jpg",
+    author: "Author Four",
+    rating: 3,
+    price: 4500,
+  },
+];
+
+export const BestSellers = [
+  {
+    name: "Book Name One",
+    source: "src/assets/images/jpg/shop-new-21.jpg",
+    author: "Author One",
+    rating: 5,
+    price: 2500,
+  },
+  {
+    name: "Book Name Two",
+    source: "src/assets/images/jpg/shop-new-40.jpg",
+    author: "Author Two",
+    rating: 1,
+    price: 3500,
+  },
+  {
+    name: "Book Name Three",
+    source: "src/assets/images/jpg/shop-new-16.jpg",
+    author: "Author Three",
+    rating: 4,
+    price: 1500,
+  },
+  {
+    name: "Book Name Four",
+    source: "src/assets/images/jpg/shop-new-65.jpg",
+    author: "Author Four",
+    rating: 3,
+    price: 4500,
+  },
+];
+
+export const CommingSoon = [
+  {
+    name: "Book Name One",
+    source: "src/assets/images/jpg/shop-new-102.jpg",
+    author: "Author One",
+    rating: 5,
+    price: 2500,
+  },
+  {
+    name: "Book Name Two",
+    source: "src/assets/images/jpg/shop-new-44.jpg",
+    author: "Author Two",
+    rating: 1,
+    price: 3500,
+  },
+  {
+    name: "Book Name Three",
+    source: "src/assets/images/jpg/shop-new-40.jpg",
+    author: "Author Three",
+    rating: 4,
+    price: 1500,
+  },
+  {
+    name: "Book Name Four",
+    source: "src/assets/images/jpg/shop-new-46.jpg",
+    author: "Author Four",
+    rating: 3,
+    price: 4500,
+  },
+];
+
+export const allBooks = [
+  {
+    id: "1",
+    name: "Book Name One",
+    source: "src/assets/images/jpg/shop-new-16.jpg",
+    author: "Author One",
+    rating: 5,
+    price: 2500,
+    avialability: "In Stock",
+  },
+  {
+    id: "2",
+    name: "Book Name Two",
+    source: "src/assets/images/jpg/shop-new-21.jpg",
+    author: "Author Two",
+    rating: 1,
+    price: 3500,
+    avialability: "Sold out",
+  },
+  {
+    id: "3",
+    name: "Book Name Three",
+    source: "src/assets/images/jpg/shop-new-40.jpg",
+    author: "Author Three",
+    rating: 4,
+    price: 1500,
+    avialability: "In Stock",
+  },
+  {
+    id: "4",
+    name: "Book Name Four",
+    source: "src/assets/images/jpg/shop-new-44.jpg",
+    author: "Author Four",
+    rating: 3,
+    price: 4500,
+    avialability: "Sold out",
+  },
+  {
+    id: "5",
+    name: "Book Name One",
+    source: "src/assets/images/jpg/shop-new-44.jpg",
+    author: "Author One",
+    rating: 5,
+    price: 2500,
+    avialability: "In Stock",
+  },
+  {
+    id: "6",
+    name: "Book Name Two",
+    source: "src/assets/images/jpg/shop-new-102.jpg",
+    author: "Author Two",
+    rating: 1,
+  },
+];
+// {
+//   bookId: "6784daca65a3753042dee0bd",
+//   title: "pushpa wasantha",
+//   description:
+//     "A dystopian novel about totalitarianism and the dangers of government overreach.",
+//   author: "George Orwell",
+//   ISBN_number: "9780451524935",
+//   price: 9.99,
+//   type: "Dystopian Fiction",
+//   cover_image: "https://example.com/images/1984.jpg",
+//   status: 1,
+//   publisher: "Secker & Warburg",
+//   pub_year: "1949",
+//   qty: 50,
+// },
