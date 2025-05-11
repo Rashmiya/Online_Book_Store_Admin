@@ -1,5 +1,8 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
 :root {
-  font-family: system-ui, Avenir, Helvetica, Arial, sans-serif;
   line-height: 1.5;
   font-weight: 400;
 
@@ -11,58 +14,116 @@
   text-rendering: optimizeLegibility;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+
+  /* ---------------------------non change colors--------------------------- */
+
+  --primary: #0d7cff;
+  --primary-hover: #00499e;
+  --secondary: #005ece;
+  --secondary-dark-blue: #2b4767;
+  --card-gray: #0000009c;
+  --secondary-hover: #28384b;
+  --color-black: #2d2d2d;
+  --color-white: #ffffff;
+  --color-green: #009f79;
+  --color-light-gray: #939292;
+  --color-text-gray: #555555;
+  --color-bg-gray: #d2d2d2;
+  --color-icon-gray: #646464;
+  --color-Text-black: #2f2c2c;
+  --color-text-dark-gray: #444444;
+  --color-icon-one: #45b6f1;
+  --color-icon-two: #ffbc84;
+  --color-icon-three: #b5b5b5;
+  --color-text-green: #248f76;
+  --color-disable-icon: #c3c3c3;
+  --color-error-red: #e34040;
+  --color-success-green: #36ae42;
+  --color-warning-yellow: #d28020;
+  --color-error-redBg: #f8b3b3;
+  --color-form-yellow: #ffea7e;
+  --secondary-text-color: #b743d3;
+
+  --color-label-yellow: #e49012cc;
+  --color-label-blue: #0d7cffcc;
+
+  --third-color-one: #44aedb;
+  --third-color-two: #9bcf47;
+  --third-color-three: #ecbe47;
+  --third-color-four: #e98f3c;
+  --third-color-five: #e06ab8;
+  --third-color-six: #e56995;
+  --third-color-seven: #b6ca8b;
+  --third-color-eight: #fba566;
+  --third-color-nine: #a144ea;
+  --third-color-ten: #56ca61;
+  --third-color-eleven: #ee6547;
+  --third-color-twelve: #e4c72e;
+  --third-color-thirteen: #9bcf47;
+  --third-color-fourteen: #44aedb;
+
+  --status-running: #04c500;
+  --status-running-bg: #04c50033;
+
+  --status-approved: #c03bff;
+  --status-approved-bg: #c03bff26;
+
+  --assign-type-indi: #1b84ff;
+  --assign-type-group: #be22cb;
+
+  --text-color-one: #969696;
+  --bg-color-one: #6fba41;
+  --bg-color-two: #f26a6a;
+  --bg-color-three: #e9eff8;
+  --icon-color: #2e75ff;
+  --card-color-one: #3c87cd;
+  --card-color-two: #ac5cc8;
+  --badge-color: #515151;
+
+  --table-header-one: #e97a7a99;
+  --table-header-two: #84b14b99;
+  --table-header-three: #65aaea99;
+  --text-color-one: #d64040;
+  --text-color-two: #525252;
+  --text-color-three: #609f42;
+  --background-table-one: #e97a7a1a;
+  --background-table-two: #84b14b1a;
+  --background-table-three: #65aaea1a;
+  --line-color: #e4e4e4;
+
+  --active-color: #1f83decc;
+  --new-color: #c840d3cc;
+  --frozen-color: #e97c3fcc;
+  --won-color: #3faf35cc;
+  --lost-color: #df4949cc;
+  --today-color: #279833;
+  --setnew-color: #e57c00;
+  --lost-color: #d65d5d;
+  --lost-color-bg: #ef787827;
+  --lost-color-bg: #fae7e740;
+  --form-card-bg: #0d7eff2d;
+  --phone-background: #ffffff;
+  --phone-border: #d9d9d9;
 }
 
-a {
-  font-weight: 500;
-  color: #646cff;
-  text-decoration: inherit;
+@font-face {
+  font-family: "Inter-Regular";
+  src: url("./assets/font/Inter-Regular.ttf") format("truetype");
 }
-a:hover {
-  color: #535bf2;
-}
-
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  font-family: "Inter-Regular", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
 }
-
-h1 {
-  font-size: 3.2em;
-  line-height: 1.1;
+/* Custom styling for the dropdown scrollbar in phone input*/
+.custom-dropdown::-webkit-scrollbar {
+  width: 8px; /* Adjust scrollbar width */
 }
-
-button {
-  border-radius: 8px;
-  border: 1px solid transparent;
-  padding: 0.6em 1.2em;
-  font-size: 1em;
-  font-weight: 500;
-  font-family: inherit;
-  background-color: #1a1a1a;
-  cursor: pointer;
-  transition: border-color 0.25s;
+.custom-dropdown::-webkit-scrollbar-thumb {
+  background-color: rgb(198, 198, 198); /* Scrollbar color */
+  border-radius: 8px; /* Optional: Rounded scrollbar */
 }
-button:hover {
-  border-color: #646cff;
-}
-button:focus,
-button:focus-visible {
-  outline: 4px auto -webkit-focus-ring-color;
-}
-
-@media (prefers-color-scheme: light) {
-  :root {
-    color: #213547;
-    background-color: #ffffff;
-  }
-  a:hover {
-    color: #747bff;
-  }
-  button {
-    background-color: #f9f9f9;
-  }
+.custom-dropdown::-webkit-scrollbar-track {
+  background-color: rgb(125, 125, 125); /* Scrollbar track color */
 }
