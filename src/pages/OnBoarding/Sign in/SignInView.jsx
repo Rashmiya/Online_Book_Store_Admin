@@ -20,7 +20,7 @@ const { Text, Link } = Typography;
 const SignInView = () => {
   const { openNotification, handleError, token } =
     useContext(NotificationContext);
-  const { setToken, admin, setAdmin } = useContext(AuthContext);
+  const { setToken, admin, setAdmin, setIsAuthChack } = useContext(AuthContext);
 
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
@@ -67,6 +67,8 @@ const SignInView = () => {
         setAdmin(response?.output?.data);
         setLocalStorageData("adminDetails", response?.output?.data);
         setLocalStorageData("selectedSegment", "Orders");
+        setIsAuthChack(true);
+        setLocalStorageData("authCheck", true);
       } else if (response.responseType === "fail") {
         openNotification("error", response?.output?.message);
       } else if (response.responseType === "error") {

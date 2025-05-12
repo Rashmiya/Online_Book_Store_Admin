@@ -110,6 +110,7 @@
   font-family: "Inter-Regular";
   src: url("./assets/font/Inter-Regular.ttf") format("truetype");
 }
+
 body {
   margin: 0;
   font-family: "Inter-Regular", sans-serif;

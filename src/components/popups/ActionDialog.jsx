@@ -1,4 +1,3 @@
-import React, { useContext } from "react";
 import { Divider, Modal, Typography } from "antd";
 import PropTypes from "prop-types";
 import CloseOutline from "../../assets/images/svg/common/CloseOutline";

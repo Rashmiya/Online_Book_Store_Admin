@@ -8,7 +8,6 @@ import {
   Steps,
   Button,
   Space,
-  message,
   Skeleton,
 } from "antd";
 import OrderService from "../../../../services/OrderService";
@@ -16,6 +15,8 @@ import { NotificationContext } from "../../../../context/NotificationContext";
 import StatusLabel from "../../../../components/statusLabel/StatusLabel";
 import { ORDER_STATUS } from "../../../../enums/Order";
 import OrderContext from "../../../../context/OrderContext";
+import ActionDialog from "../../../../components/popups/ActionDialog";
+import ChangePaymentStatus from "./ChangePaymentStatus";
 
 const { Title, Text } = Typography;
 const { Step } = Steps;
@@ -31,9 +32,10 @@ const statusEnum = [
 const ProceedOrder = ({ order }) => {
   const [status, setStatus] = useState();
   const [loading, setLoading] = useState(false);
+  const [changePaymentStatus, setChangePaymentStatus] = useState(false);
   const [data, setData] = useState({});
   const { openNotification, handleError } = useContext(NotificationContext);
-  const { isStatusUpdated, setIsStatusUpdated } = useContext(OrderContext);
+  const { setIsStatusUpdated } = useContext(OrderContext);
 
   const { getOrderById, updateOrderStatus } = OrderService();
 
@@ -222,8 +224,19 @@ const ProceedOrder = ({ order }) => {
             <Descriptions.Item label="Payment Method">
               {data?.paymentMethod}
             </Descriptions.Item>
-            <Descriptions.Item label="Payment Status">
-              {data?.paymentStatus}
+            <Descriptions.Item
+              className="flex justify-between gap-3"
+              label="Payment Status"
+            >
+              <span>{data?.paymentStatus}</span>
+              <Button
+                type="outline"
+                className="ml-10 border border-[#36AE42] text-[#36AE42]"
+                size="small"
+                onClick={() => setChangePaymentStatus(true)}
+              >
+                Change
+              </Button>
             </Descriptions.Item>
             <Descriptions.Item label="Created At">
               {new Date(data?.createdAt).toLocaleString()}
@@ -242,6 +255,23 @@ const ProceedOrder = ({ order }) => {
           </Card>
         </Card>
       )}
+      {/* Check Cart */}
+      <ActionDialog
+        modelOpen={changePaymentStatus}
+        handleCancel={() => {
+          setChangePaymentStatus(false);
+        }}
+        title="Change Payment Status"
+        size={"400px"}
+      >
+        <ChangePaymentStatus
+          order={order}
+          handleClose={async () => {
+            await fetchOrderDetails();
+            setChangePaymentStatus(false);
+          }}
+        />
+      </ActionDialog>
     </>
   );
 };

@@ -22,47 +22,30 @@ const Routerset = () => {
       </Route>
 
       {/* -----------------------------private & public routes----------------------------- */}
-      {admin !== null ? (
-        <Route path="/" element={<DashboardLayout />}>
-          <Route index element={<Orders />} />
-          <Route path="orders" element={<Orders />} />
-          <Route path="books" element={<Books />} />
-          <Route path="customers" element={<Customers />} />
-        </Route>
-      ) : (
-        <Route path="*" element={<Navigate to="/onboarding/sign-in" />} />
-      )}
+      <Route path="/" element={<PrivateRoute element={<DashboardLayout />} />}>
+        <Route index element={<PrivateRoute element={<Orders />} />} />
+        <Route path="orders" element={<PrivateRoute element={<Orders />} />} />
+        <Route path="books" element={<PrivateRoute element={<Books />} />} />
+        <Route
+          path="customers"
+          element={<PrivateRoute element={<Customers />} />}
+        />
+      </Route>
+
+      {/* -----------------------------fallback----------------------------- */}
+      <Route path="*" element={<Navigate to="/onboarding/sign-in" replace />} />
     </Routes>
   );
 };
 
 export default Routerset;
 
-const PublicRoutes = ({ element, allow }) => {
-  const { block, user } = useContext(AuthContext);
-
-  if (block) {
-    if (allow) {
-      if (user?.role === 3) {
-        return element;
-      } else {
-        // return <Navigate to="/unauthorized-error" replace />;
-        return element;
-      }
-    } else {
-      return <Navigate to="/subscription-expired" replace />;
-    }
-  } else {
-    return element;
-  }
-};
-
 const PrivateRoute = ({ element }) => {
-  const { isAuthChack, setIsAuthChack } = useContext(AuthContext);
+  const { isAuthChack } = useContext(AuthContext);
 
-  if (!isAuthChack) {
+  if (isAuthChack) {
     return element;
   } else {
-    return <Navigate to="/onboarding/sign-up" replace />;
+    return <Navigate to="/onboarding/sign-in" replace />;
   }
 };

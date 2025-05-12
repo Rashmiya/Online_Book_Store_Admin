@@ -159,6 +159,16 @@ const SignInServices = () => {
     }
   };
 
+  const refreshToken = async (data) => {
+    try {
+      const response = await fetchAction({
+        query: "/admin/refresh",
+      });
+      return handleResponse(response);
+    } catch (error) {
+      return { responseType: "error", output: error };
+    }
+  };
   return {
     loginUser,
     signUpUser,
@@ -171,6 +181,7 @@ const SignInServices = () => {
     viewUser,
     getAllAdmins,
     deleteAdmin,
+    refreshToken,
   };
 };
 

@@ -82,7 +82,7 @@ const CreateBook = ({ book, type, handleClose }) => {
       book?.cover_images.forEach((image) => {
         formData.append("old_images[]", image);
       });
-
+      book?.pdf_file && formData.append("old_pdf_file", book.pdf_file);
       if (
         values.cover_images &&
         values.cover_images.fileList &&
@@ -352,11 +352,18 @@ const CreateBook = ({ book, type, handleClose }) => {
             onPreview={(file) => {
               console.log("Previewing:", file);
             }}
+            onRemove={(file) => {
+              setFileList((prevList) =>
+                prevList.filter((item) => item.uid !== file.uid),
+              );
+            }}
           >
-            <div>
-              <PlusOutlined />
-              <div style={{ marginTop: 8 }}>Upload</div>
-            </div>
+            {fileList.length === 0 && (
+              <div>
+                <PlusOutlined />
+                <div style={{ marginTop: 8 }}>Upload</div>
+              </div>
+            )}
           </Upload>
         </Form.Item>
 

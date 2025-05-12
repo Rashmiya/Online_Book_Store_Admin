@@ -12,8 +12,10 @@ export const AuthProvider = ({ children }) => {
   const [userPermissionList, setUserPermissionList] = useState(
     getLocalStoragedata("userPermissionList"),
   );
+  const [isAuthChack, setIsAuthChack] = useState(
+    getLocalStoragedata("authCheck"),
+  );
   const [timeZone, setTimeZone] = useState();
-  const [isAuthChack, setIsAuthChack] = useState(false);
   const [profilePicture, setProfilePicture] = useState(
     getLocalStoragedata("profilePic"),
   );

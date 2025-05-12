@@ -39,25 +39,74 @@ export function NotificationContextProvider({ children }) {
   const handleError = (error) => {
     if (error.code === "ERR_NETWORK") {
       openNotification("error", "Network Error!", null, "handleError");
-    } else if (error.response) {
-      if (error.response.status === 401) {
-        openNotification("error", "Error!", null, "handleError");
-        localStorage.clear();
-        window.location.replace("/login");
-      } else if (error.response.status === 404) {
-        openNotification("error", error?.message, null, "handleError");
-      } else if (error.response.status === 500) {
-        openNotification(
-          "error",
-          "Internal Server Error!",
-          null,
-          "handleError",
-        );
-      } else {
-        openNotification("error", "Something went wrong", null, "handleError");
+      return;
+    }
+
+    if (error.response) {
+      const { status, data } = error.response;
+
+      switch (status) {
+        case 401:
+          openNotification(
+            "error",
+            "Session expired. Please sign in again.",
+            null,
+            "handleError",
+          );
+          localStorage.clear();
+          sessionStorage.clear();
+          window.location.replace("/onboarding/sign-in");
+          break;
+        case 403:
+          openNotification(
+            "error",
+            data?.message || "Access Denied",
+            null,
+            "handleError",
+          );
+          localStorage.clear();
+          sessionStorage.clear();
+          window.location.replace("/onboarding/sign-in");
+          break;
+        case 404:
+          openNotification(
+            "error",
+            data?.message || "Resource not found",
+            null,
+            "handleError",
+          );
+          break;
+        case 500:
+          openNotification(
+            "error",
+            "Internal Server Error!",
+            null,
+            "handleError",
+          );
+          break;
+        default:
+          openNotification(
+            "error",
+            data?.message || "Something went wrong",
+            null,
+            "handleError",
+          );
+          break;
       }
     } else if (error.code === "ERR_BAD_REQUEST") {
-      openNotification("error", error?.message, null, "handleError");
+      openNotification(
+        "error",
+        error?.message || "Bad Request",
+        null,
+        "handleError",
+      );
+    } else {
+      openNotification(
+        "error",
+        "An unknown error occurred",
+        null,
+        "handleError",
+      );
     }
   };
 
