@@ -181,7 +181,7 @@ const SignInServices = () => {
     viewUser,
     getAllAdmins,
     deleteAdmin,
-    refreshToken,
+    refreshToken
   };
 };
 
